@@ -154,3 +154,20 @@ ul li span:hover{
 ul li i{
     pointer-events: none;
 }
+
+/*Responsiveness*/
+
+@media only screen and (max-width: 550px){
+    body{
+        margin-top: 5rem;
+    }
+    .todo-app{
+        width: 90%;
+    }
+    h1{
+        font-size: 15vw;
+    }
+    ul li{
+        width:90%
+    }
+}
