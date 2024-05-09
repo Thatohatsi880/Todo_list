@@ -18,7 +18,7 @@ function addTask(){
      li.innerHTML = inputBox.value;
      let span = document.createElement("span");
      span.innerHTML = "<i class='fa-solid fa-trash'></i>"
-    li.appendChild(span);
+     li.appendChild(span);
     listContainer.appendChild(li)
     }
     inputBox.value = "";

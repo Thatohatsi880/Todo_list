@@ -128,7 +128,7 @@ ul li{
 }
 
 ul li.checked{
-    color: white;
+    color: peachpuff;
     text-decoration:line-through;
 }
 
