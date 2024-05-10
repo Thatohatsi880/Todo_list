@@ -3,7 +3,7 @@ function addTask() {
      var taskList = document.getElementById("taskList");
     
     console.log(taskInput.value);
-    console.log(typeOftaskList);
+    // console.log(typeOftaskList);
     if (taskInput.value !== "") {
         var task = document.createElement("li");
         task.className = "task-item";
