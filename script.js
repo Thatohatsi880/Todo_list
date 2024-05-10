@@ -1,3 +1,5 @@
+const taskArray = [];
+
 function addTask() {
     var taskInput = document.getElementById("newItem");
      var taskList = document.getElementById("taskList");
@@ -5,6 +7,8 @@ function addTask() {
     console.log(taskInput.value);
     // console.log(typeOftaskList);
     if (taskInput.value !== "") {
+        taskArray.push(taskInput.value);
+        console.log(taskArray);
         var task = document.createElement("li");
         task.className = "task-item";
         task.innerHTML = `
@@ -16,11 +20,15 @@ function addTask() {
            </div>
         `;
         taskList.appendChild(task);
+        const taskCount = document.getElementById("taskCount")
+        taskCount.innerHTML = `Task - ${taskArray.length}`
+
+
         taskInput.value = "";
 
      // Add event listener to reply icons
     // Add event listener to delete icons
-  const deleteIcons = document.querySelectorAll('.trash');
+  const deleteIcons = document.querySelectorAll('.delete');
   deleteIcons.forEach(icon => {
   icon.addEventListener('click', deleteItem);
 });
@@ -51,4 +59,7 @@ function addTask() {
     const replyIcon = listItem.querySelector('.reply');
     replyIcon.style.display = listItem.classList.contains('scratch') ? 'inline' : 'none';
   }
-})}}
+})
+}
+}
+

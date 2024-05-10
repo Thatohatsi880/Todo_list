@@ -23,7 +23,7 @@ body{
     }
 
 .todo-app{
-    border: 1px solid white; 
+    /* border: 1px solid white;  */
     width:500px;
     min-height: 40vh;
     padding: 10px;
@@ -95,6 +95,9 @@ ul li{
 
 }
 
+h3{
+    color: white;
+}
 
 .item {
     margin-right: 10px;
