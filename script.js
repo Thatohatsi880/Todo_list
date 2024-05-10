@@ -1,50 +1,37 @@
-const inputBox = document.getElementById("input-box")
-const listContainer = document.getElementById("list-container")
+function addTask() {
+    var taskInput = document.getElementById("newItem");
+     var taskList = document.getElementById("taskList");
+    
+    console.log(taskInput.value);
+    console.log(typeOftaskList);
+    if (taskInput.value !== "") {
+        var task = document.createElement("li");
+        task.className = "task-item";
+        task.innerHTML = `
+           <span>${taskInput.value}</span> 
+           <div>
+           <span class="check-btn"><i class="fas fa-check"></i></span>
+           <span class="delete-btn"><i class="fas fa-trash"></i></span>
+           </div>
+        `;
+        taskList.appendChild(task);
+        taskInput.value = "";
 
+        var deleteBtns = document.querySelectorAll(".delete-btn");
+        deleteBtns.forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                this.parentElement.remove();
+            });
+        });
 
-document.getElementById("add-btn").addEventListener("click",addTask);
-addEventListener("keydown", (e) =>{
-    if(e.key == "Enter"){
-        addTask()
+        var checkBtns = document.querySelectorAll(".check-btn");
+        checkBtns.forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                this.parentElement.classList.toggle("completed");
+            });
+        });
+
+        var taskCount =document.getElementById("taskCount");
+        taskCount.innerHTML = `Tasks - ${taskList}`
     }
-});
-
-
-function addTask(){
-    if (inputBox.value ==""){
-     alert("You must write something!!!");
-    }else{
-     let li = document.createElement("li");
-     li.innerHTML = inputBox.value;
-     let span = document.createElement("span");
-     span.innerHTML = "<i class='fa-solid fa-trash'></i>"
-     li.appendChild(span);
-    listContainer.appendChild(li)
-    }
-    inputBox.value = "";
-    saveData()
-} 
-
-    //save data to LocalStorage
-
-    function saveData(){
-        localStorage.setItem("data", listContainer.innerHTML)
-    }
-
-    listContainer.addEventListener("click", (e) =>{
-        if(e.target.tagName.toUpperCase() === "LI"){
-            e.target.classList.toggle("checked")
-            saveData()
-        }else if(e.target.tagName.toUpperCase() === "SPAN"){
-            e.target.parentElement.remove()
-            saveData()
-        }
-        
-    })
-    //fetch data from Local Storage
-
-    function showTask(){
-        listContainer.innerHTML = localStorage.getItem("data")
-    }
-
-    showTask()
+};

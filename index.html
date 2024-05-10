@@ -12,28 +12,14 @@
 
 </head>
 <body>
-    <div class="container">
-        <h1>To-do List</h1>
         <div class="todo-app">
-            <div class="row">
-                <input type="text" id="input-box" placeholder="Add Task">
-                <button id="add-btn">Add</button>
-            </div>
-            <ul id="list-container">
-            <li class="checked">
-                <span>
-                <i class="fa-solid fa-trash"></i>
-                </span>
-            </li>
-                <li class="checked">
-                <span>
-                    <i class="fa-solid fa-trash"></i>
-                </span>
-            </li>
-            </ul>
+            <div class="taskContainer">
+            <input type="text" id="newItem" placeholder="Add Task">
+           <button onclick="addTask()"><i class="fas fa-plus"></i></button>
+           </div>
+           <h3 id="taskCount"></h3>
+           <ul id="taskList"></ul>
         </div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
