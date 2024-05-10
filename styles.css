@@ -95,10 +95,26 @@ ul li{
 
 }
 
-ul li.checked{
-    color: navy;
-    text-decoration:line-through;
-}
+
+.item {
+    margin-right: 10px;
+  }
+  
+  .delete {
+    cursor: pointer;
+    color: #9e78cf;
+  }
+  
+  .scratch {
+    cursor: pointer;
+    color:#9e78cf;
+  }
+  
+  .reply {
+    cursor: pointer;
+    color: #9e78cf;
+  }
+  
 
 
 

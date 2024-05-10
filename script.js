@@ -10,28 +10,45 @@ function addTask() {
         task.innerHTML = `
            <span>${taskInput.value}</span> 
            <div>
-           <span class="check-btn"><i class="fas fa-check"></i></span>
-           <span class="delete-btn"><i class="fas fa-trash"></i></span>
+           <span class="scratch"><i class="fas fa-check "></i></span>
+           <span class="delete"><i class="fas fa-trash"></i></span>
+           <span class="reply"><i class="fas fa-reply"></i></span>
            </div>
         `;
         taskList.appendChild(task);
         taskInput.value = "";
 
-        var deleteBtns = document.querySelectorAll(".delete-btn");
-        deleteBtns.forEach(function(btn) {
-            btn.addEventListener("click", function() {
-                this.parentElement.remove();
-            });
-        });
+     // Add event listener to reply icons
+    // Add event listener to delete icons
+  const deleteIcons = document.querySelectorAll('.trash');
+  deleteIcons.forEach(icon => {
+  icon.addEventListener('click', deleteItem);
+});
 
-        var checkBtns = document.querySelectorAll(".check-btn");
-        checkBtns.forEach(function(btn) {
-            btn.addEventListener("click", function() {
-                this.parentElement.classList.toggle("completed");
-            });
-        });
+// Add event listener to scratch icons
+  const scratchIcons = document.querySelectorAll('.scratch');
+  scratchIcons.forEach(icon => {
+  icon.addEventListener('click', scratchItem);
+});
 
-        var taskCount =document.getElementById("taskCount");
-        taskCount.innerHTML = `Tasks - ${taskList}`
-    }
-};
+// Add event listener to reply icons
+  const replyIcons = document.querySelectorAll('.reply');
+  replyIcons.forEach(icon => {
+  icon.addEventListener('click', replyItem);
+});
+
+  function deleteItem() {
+  const listItem = this.parentNode;
+  listItem.remove();
+}
+
+// Update event listener to handle check icon click and displaying reply icon
+   taskInput.addEventListener('click', function(event) {
+   if (event.target.class.contains('fa-check')) {
+    const listItem = event.target.parentNode;
+    listItem.classList.toggle('scratch');
+
+    const replyIcon = listItem.querySelector('.reply');
+    replyIcon.style.display = listItem.classList.contains('scratch') ? 'inline' : 'none';
+  }
+})}}
