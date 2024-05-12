@@ -19,7 +19,7 @@
 body{
     font-family:Georgia, 'Times New Roman', Times, serif;
     height: 100%;
-    background-color: #0D0714;
+    background-color: var(--colors-purple900);
     }
 
 .todo-app{
@@ -42,10 +42,10 @@ body{
 }
 
 input{
-    color: white;
+    color: var(--colors-purple500);
     font-size: 17px;
     width: 87%;
-    border: 1px solid #9E78CF;
+    border: 1px solid var(--colors-purple500);;
     background:transparent;
     padding: 10px;
     font-weight: 14px;
@@ -61,7 +61,7 @@ button{
     border: 0px; 
     cursor: pointer;
     width:10%;
-    background-color:#9e78cf;
+    background-color:var(--colors-purple500);
     padding: 12px;
     border-radius: 8px;
 
@@ -81,7 +81,7 @@ ul{
 ul li{
 
     list-style: none;
-    color:#9e78cf;
+    color:var(--colors-purple500);
    
     padding: 15px;
     display: flex;
@@ -96,7 +96,8 @@ ul li{
 }
 
 h3{
-    color: white;
+   
+    color: var(--colors-white);
 }
 
 .item {
@@ -105,24 +106,35 @@ h3{
   
   .delete {
     cursor: pointer;
-    color: #9e78cf;
+    color:var(--colors-purple500);
   }
   
   .scratch {
     cursor: pointer;
-    color:#9e78cf;
+    color:var(--colors-purple500);
+    text-decoration:line-through;
   }
   
   .reply {
     cursor: pointer;
-    color: #9e78cf;
+    color:var(--colors-purple500);
   }
   
 
 .fa-plus{
 
-    color: white;
+    color: var(--colors-white);
 }
+
+.completed-list{
+ color: white;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #777; /* Change color to gray for completed tasks */
+  }
+  
 
 /*Responsiveness*/
 
