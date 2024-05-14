@@ -157,30 +157,38 @@ function deleteItem(taskItem) {
       completedTaskCountHeading.remove();
       completedTaskCountHeading = null; // Reset completedTaskCountHeading variable
     }
+
     function clearList() {
-      // Clear task list
-      taskList.innerHTML = '';
-      // Clear completed tasks list
-      completedList.innerHTML = '';
-      // Update task count heading
-      updateTaskCount();
-      // Update completed task count heading
-      updateCompletedTaskCount();
-    
-      // Check if there are no tasks remaining
-      if (taskArray.length === 0) {
-          // Remove task count heading
-          if (taskCountHeading) {
-              taskCountHeading.remove();
-              taskCountHeading = null; // Reset taskCountHeading variable
-          }
-          // Remove completed task count heading
-          if (completedTaskCountHeading) {
-              completedTaskCountHeading.remove();
-              completedTaskCountHeading = null; // Reset completedTaskCountHeading variable
-          }
-      }
-  }
+    // Clear task list
+    taskList.innerHTML = '';
+    // Clear completed tasks list
+    completedList.innerHTML = '';
+    // Clear task array
+    taskArray = [];
+    // Update task count heading
+    updateTaskCount();
+    // Update completed task count heading
+    updateCompletedTaskCount();
+
+    // Check if there are no tasks remaining
+    if (taskArray.length === 0) {
+        // Remove task count heading
+        if (taskCountHeading) {
+            taskCountHeading.remove();
+            taskCountHeading = null; // Reset taskCountHeading variable
+        }
+    }
+
+    // Check if there are no completed tasks remaining
+    if (completedList.children.length === 0) {
+        // Remove completed task count heading
+        if (completedTaskCountHeading) {
+            completedTaskCountHeading.remove();
+            completedTaskCountHeading = null; // Reset completedTaskCountHeading variable
+        }
+    }
+}
+
   
   }
 }
