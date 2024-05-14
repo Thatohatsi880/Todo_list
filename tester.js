@@ -137,27 +137,50 @@ function replyTask(taskItem) {
 // Function to delete a task
 // Function to delete a task
 function deleteItem(taskItem) {
-    const taskIndex = taskItem.getAttribute('data-index');
-    taskItem.remove();
-    taskArray.splice(taskIndex, 1);
-  
-    // Update task count heading
-    updateTaskCount();
-  
-    // Check if there are no tasks remaining
-    if (taskArray.length === 0) {
-      // Remove task count heading
-      if (taskCountHeading) {
-        taskCountHeading.remove();
-        taskCountHeading = null; // Reset taskCountHeading variable
-      }
-  
-      // Remove completed task count heading
-      if (completedTaskCountHeading) {
-        completedTaskCountHeading.remove();
-        completedTaskCountHeading = null; // Reset completedTaskCountHeading variable
-      }
+  const taskIndex = taskItem.getAttribute('data-index');
+  taskItem.remove();
+  taskArray.splice(taskIndex, 1);
+
+  // Update task count heading
+  updateTaskCount();
+
+  // Check if there are no tasks remaining
+  if (taskArray.length === 0) {
+    // Remove task count heading
+    if (taskCountHeading) {
+      taskCountHeading.remove();
+      taskCountHeading = null; // Reset taskCountHeading variable
     }
+
+    // Remove completed task count heading
+    if (completedTaskCountHeading) {
+      completedTaskCountHeading.remove();
+      completedTaskCountHeading = null; // Reset completedTaskCountHeading variable
+    }
+    function clearList() {
+      // Clear task list
+      taskList.innerHTML = '';
+      // Clear completed tasks list
+      completedList.innerHTML = '';
+      // Update task count heading
+      updateTaskCount();
+      // Update completed task count heading
+      updateCompletedTaskCount();
+    
+      // Check if there are no tasks remaining
+      if (taskArray.length === 0) {
+          // Remove task count heading
+          if (taskCountHeading) {
+              taskCountHeading.remove();
+              taskCountHeading = null; // Reset taskCountHeading variable
+          }
+          // Remove completed task count heading
+          if (completedTaskCountHeading) {
+              completedTaskCountHeading.remove();
+              completedTaskCountHeading = null; // Reset completedTaskCountHeading variable
+          }
+      }
   }
   
-
+  }
+}

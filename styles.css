@@ -136,6 +136,7 @@ h3 {
     border-radius: 10px;
     border: 1px solid #15101c;
     background-color: #15101c;
+    margin-bottom: 12px;
 }
 
 #completedList .delete {
@@ -147,6 +148,15 @@ h3 {
     right: 1rem;
     display: flex;
 }
+
+ul li .done-task i {
+    margin-right: 8px; /* Add margin between the trash and check icons */
+}
+
+ul li .delete i {
+    margin-left: 8px; /* Add margin between the trash and check icons */
+}
+
 
 /* Responsiveness */
 @media only screen and (max-width: 550px) {
